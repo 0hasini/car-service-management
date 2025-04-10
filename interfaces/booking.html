@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <title>CarService Pro | Book Service</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-car"></i>
+            CarService Pro
+        </div>
+        <div class="nav-links">
+            <button class="btn btn-logout" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </nav>
+    
+    <script>
+    function logout() {
+        // Clear user data from localStorage
+        localStorage.removeItem('user_id');
+        localStorage.removeItem('Fname');
+        localStorage.removeItem('Lname');
+        
+        // Redirect to login page
+        window.location.href = 'index.html';
+    }
+    </script>
+
+    <!-- Booking Page Content -->
+    <section class="booking-page">
+        <div class="booking-header">
+            <h1>Book Your Car Service</h1>
+            <p>Schedule your car service in just a few clicks. Our certified mechanics will come to your preferred location with all necessary tools and equipment.</p>
+        </div>
+
+        <!-- Add this before the booking form container -->
+<div class="vehicle-management" style="max-width: 800px; margin: 0 auto 2rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h2>Your Vehicles</h2>
+        <button id="add-vehicle-btn" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Add Vehicle
+        </button>
+    </div>
+    
+    <div id="vehicles-list" class="vehicles-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; margin-bottom: 2rem;"></div>
+    
+    <!-- Add Vehicle Modal (hidden by default) -->
+    <div id="vehicle-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center;">
+        <div class="booking-form-container" style="max-width: 500px; margin: 2rem; position: relative;">
+            <button id="close-modal" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+            <h2 style="margin-bottom: 1.5rem;">Add New Vehicle</h2>
+            <form id="vehicle-form">
+                <div class="form-group">
+                    <label for="vehicle-reg-number">Vehicle Registration Number</label>
+                    <input type="text" id="vehicle-reg-number" placeholder="DL 1C AB 1234" required>
+                </div>
+                <div class="form-group">
+                    <label for="vehicle-brand">Car Brand</label>
+                    <select id="vehicle-brand" required>
+                        <option value="">Choose Brand</option>
+                        <option value="tesla">Tesla</option>
+                        <option value="tata">Tata</option>
+                        <option value="mahindra">Mahindra</option>
+                        <option value="mg">MG</option>
+                        <option value="hyundai">Hyundai</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="vehicle-model">Car Model</label>
+                    <select id="vehicle-model" required>
+                        <option value="">Choose Model</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="vehicle-year">Registration Year</label>
+                    <select id="vehicle-year" required>
+                        <option value="">Select Year</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="vehicle-variant">Fuel Type</label>
+                    <select id="vehicle-variant" required>
+                        <option value="">Select Type</option>
+                        <option value="Petrol">Petrol</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="Electric">Electric</option>
+                    </select>
+                </div>
+                <div class="form-navigation">
+                    <button type="submit" class="btn btn-primary">Save Vehicle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+        
+        <!-- Booking Form Container -->
+<div class="booking-form-container" style="max-width: 800px; margin: 0 auto;">
+    <form id="booking-form" class="booking-form">
+        <div class="progress-steps">
+            <div class="progress-bar" style="width: 33%;"></div>
+            <div class="step active" data-step="1">1</div>
+            <div class="step" data-step="2">2</div>
+            <div class="step" data-step="3">3</div>
+        </div>
+        
+        <!-- Step 1: Select Vehicle -->
+        <div class="form-step active" data-step="1">
+            <div class="form-group">
+                <label for="selected-vehicle">Select Your Vehicle</label>
+                <select id="selected-vehicle" required>
+                    <option value="">Choose a vehicle</option>
+                    <!-- Vehicles will be populated here -->
+                </select>
+            </div>
+            <div class="form-navigation">
+                <button type="button" class="btn btn-primary next-step">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+        
+        <!-- Step 2: Service Details -->
+        <div class="form-step" data-step="2">
+            <div class="form-group">
+                <label for="service-type">Select Service Type</label>
+                <select id="service-type" required>
+                    <option value="">Choose Service</option>
+                    <option value="Oil Change">Oil Change</option>
+                    <option value="Tire Rotation">Tire Rotation</option>
+                    <option value="Major Repair">Major Repair</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="service-package">Service Package</label>
+                <select id="service-package" name="service-package" required>
+                    <option value="" disabled selected>Choose a package</option>
+                    <option value="basic">Basic</option>
+                    <option value="premium">Premium</option>
+                </select>
+            </div>
+            <div class="form-navigation">
+                <button type="button" class="btn btn-outline prev-step"><i class="fas fa-arrow-left"></i> Previous</button>
+                <button type="button" class="btn btn-primary next-step">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+        
+        <!-- Step 3: Scheduling -->
+        <div class="form-step" data-step="3">
+            <div class="form-group">
+                <label for="service-date">Select Service Date</label>
+                <input type="date" id="service-date" required>
+            </div>
+            <div class="form-group">
+                <label for="service-time">Select Time Slot</label>
+                <select id="service-time" required>
+                    <option value="">Choose Time</option>
+                    <option value="morning">Morning (9AM - 12PM)</option>
+                    <option value="afternoon">Afternoon (12PM - 3PM)</option>
+                    <option value="evening">Evening (3PM - 6PM)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="service-pickup">Pickup Service</label>
+                <select id="service-pickup" name="service-pickup" required>
+                    <option value="" disabled selected>Do you require pickup facility?</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="special-requests">Special Requests (Optional)</label>
+                <textarea id="special-requests" rows="3" placeholder="Any additional instructions for our mechanic"></textarea>
+            </div>
+            <div class="form-navigation">
+                <button type="button" class="btn btn-outline prev-step"><i class="fas fa-arrow-left"></i> Previous</button>
+                <button type="submit" class="btn btn-primary" id="confirm-booking">
+                    Confirm Booking <i class="fas fa-check"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+
+   <!-- Recent Bookings Section -->
+<div class="recent-bookings" style="max-width: 800px; margin: 3rem auto;">
+    <h2 style="margin-bottom: 1.5rem; text-align: center;">Your Recent Bookings</h2>
+    
+    <div class="booking-tabs">
+        <button class="booking-tab-btn active" data-tab="all">All</button>
+        <button class="booking-tab-btn" data-tab="pending">Pending</button>
+        <button class="booking-tab-btn" data-tab="in-progress">In Progress</button>
+        <button class="booking-tab-btn" data-tab="completed">Completed</button>
+    </div>
+    
+    <div id="bookings-list" class="booking-cards"></div>
+    
+    <div id="empty-bookings" class="empty-state" style="display: none;">
+        <div class="empty-state-icon">
+            <i class="fas fa-clipboard-list"></i>
+        </div>
+        <h3>No Bookings Found</h3>
+        <p>You haven't made any bookings yet.</p>
+    </div>
+</div>
+
+<!-- Success Message (hidden by default) -->
+<div id="success-message" style="display: none; position: fixed; top: 20px; right: 20px; background: #4BB543; color: white; padding: 1rem 2rem; border-radius: 5px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 1000;">
+    Booking confirmed successfully!
+</div>
+</section>
+</div>
+<script src="booking.js"></script>
+
+</body>
+</html>

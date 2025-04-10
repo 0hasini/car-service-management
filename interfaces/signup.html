@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarService Pro | Sign Up</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-car"></i>
+            CarService Pro
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="login.html" class="btn">Login</a>
+        </div>
+    </nav>
+
+    <!-- Signup Section -->
+    <section class="signup-section">
+        <div class="signup-container">
+            <div class="signup-header">
+                <h2>Create Your Account</h2>
+                <p>Join thousands of satisfied customers who trust us for their car service needs</p>
+            </div>
+            
+            <form id="signup-form" class="signup-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" name="fname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lname">Last Name</label>
+                        <input type="text" id="lname" name="lname" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone_number">Phone Number</label>
+                    <input type="tel" id="phone_number" name="phone_number" value="+91 " required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="role">Registering as</label>
+                    <select id="role" name="role" required>
+                        <option value="">Select Role</option>
+                        <option value="Customer">Customer</option>
+                        <option value="Mechanic">Mechanic</option>
+                    </select>
+                </div>
+                
+                <h3 style="margin: 1.5rem 0 1rem; color: var(--dark);">Address Information</h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="street-no">Street No</label>
+                        <input type="text" id="street-no" name="street-no">
+                    </div>
+                    <div class="form-group">
+                        <label for="street-name">Street Name</label>
+                        <input type="text" id="street-name" name="street-name">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="building">Building/Apartment Name</label>
+                    <input type="text" id="building" name="building">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" id="state" name="state">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pincode">Pincode</label>
+                    <input type="text" id="pincode" name="pincode">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn" style="padding: 1rem 2.5rem;">
+                        <i class="fas fa-user-plus"></i> Create Account
+                    </button>
+                </div>
+                
+                <div class="login-link">
+                    Already have an account? <a href="login.html">Login here</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script src="signup.js"></script>
+
+</body>
+</html>

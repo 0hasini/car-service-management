@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarService Pro | Mechanic Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index_mechanic.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-car"></i>
+            CarService Pro
+        </div>
+        <div class="nav-links">
+            <a href="login.html" class="btn">Logout</a>
+        </div>
+    </nav>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard-section">
+        <div class="dashboard-header">
+            <div>
+                <h1>Mechanic Dashboard</h1>
+                <p class="welcome-message">Welcome back, <strong>Rajesh Kumar</strong> (ID: MECH-4251)</p>
+            </div>
+            <div>
+                <button class="btn btn-primary"><i class="fas fa-sync-alt"></i> Refresh</button>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-cards">
+            <div class="stat-card">
+                <div class="stat-card-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-card-value">8</div>
+                <div class="stat-card-label">Pending Jobs</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="stat-card-value">5</div>
+                <div class="stat-card-label">In Progress</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-card-value">42</div>
+                <div class="stat-card-label">Completed</div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="dashboard-tabs">
+            <button class="tab-btn active" data-tab="pending">Pending</button>
+            <button class="tab-btn" data-tab="in-progress">In Progress</button>
+            <button class="tab-btn" data-tab="completed">Completed</button>
+            
+        </div>
+
+        <!-- Booking Cards -->
+        <div class="booking-cards">
+            <!-- Pending Booking Card -->
+            <div class="booking-card" data-status="pending">
+                <div class="booking-card-header">
+                    <div class="booking-id">Booking #CS-78945</div>
+                    <span class="booking-status status-pending">Pending</span>
+                    <h3>Full Service Package</h3>
+                    <p><i class="fas fa-calendar-alt"></i> Today, 3PM - 6PM</p>
+                </div>
+                <div class="booking-card-body">
+                    <div class="booking-detail">
+                        <div class="booking-detail-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="booking-detail-content">
+                            <h4>Vehicle Details</h4>
+                            <p>Tata Nexon EV (2022) • DL 1C AB 1234</p>
+                        </div>
+                    </div>
+                    <div class="booking-detail">
+                        <div class="booking-detail-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="booking-detail-content">
+                            <h4>Customer</h4>
+                            <p>Amit Sharma • +91 98765 43210</p>
+                        </div>
+                    </div>
+                    <div class="booking-detail">
+                        <div class="booking-detail-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="booking-detail-content">
+                            <h4>Location</h4>
+                            <p>123 Green Avenue, Bangalore - 560001</p>
+                        </div>
+                    </div>
+                    <div class="booking-detail">
+                        <div class="booking-detail-icon">
+                            <i class="fas fa-sticky-note"></i>
+                        </div>
+                        <div class="booking-detail-content">
+                            <h4>Special Requests</h4>
+                            <p>Please check the brake pads thoroughly and replace if needed.</p>
+                        </div>
+                    </div>
+                    <div class="booking-actions">
+                        <button class="btn btn-success"><i class="fas fa-check"></i> Accept</button>
+                        <button class="btn btn-danger"><i class="fas fa-times"></i> Reject</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- In Progress Booking Card -->
+            <div class="booking-card" data-status="in-progress">
+                <div class="booking-card-header">
+                    <div class="booking-id">Booking #CS-78942</div>
+                    <span class="booking-status status-in-progress">In Progress</span>
+                    <h3>AC Service</h3>
+                    <p><i class="fas fa-calendar-alt"></i> Tomorrow, 9AM - 12PM</p>
+                </div>
+                <div class="booking-card-body">
+                    <div class="booking-detail">
+                        <div class="booking-detail-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="booking-detail-content">
+                            <h4>Vehicle Details</h4>
+                            <p>Hyundai Kona Electric (2021) • DL 2D EF 5678</p>
+                        </div>
+                    </div>
+                    <div class="booking-detail">
+                        <div class="booking-detail-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="booking-detail-content">
+                            <h4>Customer</h4>
+                            <p>Priya Patel • +91 87654 32109</p>
+                        </div>
+                    </div>
+                    <div class="booking-detail">
+                        <div class="booking-detail-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="booking-detail-content">
+                            <h4>Location</h4>
+                            <p>456 Tech Park, Bangalore - 560102</p>
+                        </div>
+                    </div>
+                    <div class="booking-detail">
+                        <div class="booking-detail-icon">
+                            <i class="fas fa-sticky-note"></i>
+                        </div>
+                        <div class="booking-detail-content">
+                            <h4>Special Requests</h4>
+                            <p>AC is not cooling properly. Please check for leaks and refill gas if needed.</p>
+                        </div>
+                    </div>
+                    <div class="booking-actions">
+                        <button class="btn btn-primary"><i class="fas fa-phone"></i> Call Customer</button>
+                        <button class="btn btn-success"><i class="fas fa-check-circle"></i> Mark Complete</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Completed Booking Card -->
+            <div class="booking-card" data-status="completed">
+                <div class="booking-card-header">
+                    <div class="booking-id">Booking #CS-78938</div>
+                    <span class="booking-status status-completed">Completed</span>
+                    <h3>Battery Replacement</h3>
+                    <p><i class="fas fa-calendar-alt"></i> 15 Jan 2024, 12PM - 3PM</p>
+                </div>
+                <div class="booking-card-body">
+                    <div class="booking-detail">
+                        <div class="booking-detail-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="booking-detail-content">
+                            <h4>Vehicle Details</h4>
+                            <p>MG ZS EV (2020) • DL 3G HI 9012</p>
+                        </div>
+                    </div>
+                    <div class="booking-detail">
+                        <div class="booking-detail-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="booking-detail-content">
+                            <h4>Customer</h4>
+                            <p>Rahul Verma • +91 76543 21098</p>
+                        </div>
+                    </div>
+                    <div class="booking-detail">
+                        <div class="booking-detail-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="booking-detail-content">
+                            <h4>Location</h4>
+                            <p>789 Lake View Apartments, Bangalore - 560034</p>
+                        </div>
+                    </div>
+                    <div class="booking-detail">
+                        <div class="booking-detail-icon">
+                            <i class="fas fa-sticky-note"></i>
+                        </div>
+                        <div class="booking-detail-content">
+                            <h4>Work Done</h4>
+                            <p>Replaced main battery pack with OEM part. Tested all electrical systems.</p>
+                        </div>
+                    </div>
+                    <div class="booking-detail">
+                        <div class="booking-detail-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="booking-detail-content">
+                            <h4>Customer Rating</h4>
+                            <p>
+                                <i class="fas fa-star" style="color: #ffc107;"></i>
+                                <i class="fas fa-star" style="color: #ffc107;"></i>
+                                <i class="fas fa-star" style="color: #ffc107;"></i>
+                                <i class="fas fa-star" style="color: #ffc107;"></i>
+                                <i class="fas fa-star" style="color: #ffc107;"></i>
+                                (5/5)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="booking-actions">
+                        <button class="btn btn-outline"><i class="fas fa-file-alt"></i> View Invoice</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty State (for demonstration) -->
+            <div class="empty-state" id="empty-state" style="display: none;">
+                <div class="empty-state-icon">
+                    <i class="fas fa-clipboard-list"></i>
+                </div>
+                <h3>No Bookings Found</h3>
+                <p>You don't have any bookings in this category at the moment.</p>
+                <button class="btn btn-primary"><i class="fas fa-sync-alt"></i> Refresh</button>
+            </div>
+        </div>
+    </section>
+
+   <script src="index_mechanic.js"></script>
+</body>
+</html>

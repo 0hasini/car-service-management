@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarService Pro | Mechanic Specialization</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mechanic_specialization.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-car"></i>
+            CarService Pro
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="login.html" class="btn">Login</a>
+        </div>
+    </nav>
+
+    <!-- Specialization Section -->
+    <section class="specialization-section">
+        <div class="specialization-container">
+            <div class="specialization-header">
+                <h2>Mechanic Specialization</h2>
+                <p>Please select your area(s) of expertise</p>
+            </div>
+            
+            <form id="specialization-form" class="specialization-form">
+                <div class="form-group">
+                    <label>Select your specializations:</label>
+                    <div class="specialization-options">
+                        <div class="specialization-option">
+                            <input type="radio" id="oil-change" name="specialization" value="Oil Change">
+                            <label for="oil-change">Oil Change</label>
+                        </div>
+                        <div class="specialization-option">
+                            <input type="radio" id="tire-rotation" name="specialization" value="Tire Rotation">
+                            <label for="tire-rotation">Tire Rotation</label>
+                        </div>
+                        <div class="specialization-option">
+                            <input type="radio" id="major-repair" name="specialization" value="Major Repair">
+                            <label for="major-repair">Major Repair</label>
+                        </div>
+                    </div>
+                    
+                </div>                
+                              
+                <div class="form-actions">
+                    <button type="submit" class="btn" style="padding: 1rem 2.5rem;">
+                        <i class="fas fa-check-circle"></i> Complete Registration
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script src="mechanic_specialization.js"></script>
+</body>
+</html>
